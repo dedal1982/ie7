@@ -223,14 +223,14 @@
 
         var formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
 
-        var time = document.querySelector(".time");
+        var time = document.querySelector(".time"); // querySelector
         if (!time) {
-          var time = document.getElementsByClassName("time")[0];
+          var time = document.getElementsByClassName("time")[0]; // Если не работает querySelector
         }
 
-        var data = document.querySelector(".date");
+        var data = document.querySelector(".date"); // querySelector
         if (!data) {
-          var data = document.getElementsByClassName("date")[0];
+          var data = document.getElementsByClassName("date")[0]; // Если не работает querySelector
         }
 
         time.innerHTML = hours + ":" + formattedMinutes;
@@ -241,53 +241,55 @@
         updateTime();
         setInterval(updateTime, 1000);
 
-        document.body.attachEvent("onclick", function () {
+        document.body.onclick = function () {
+          // исправлено
           var dateBlock = document.querySelector(".times");
           if (!dateBlock) {
-            var dateBlock = document.getElementsByClassName("times")[0];
+            var dateBlock = document.getElementsByClassName("times")[0]; // Если не работает querySelector
           }
 
           var bg = document.querySelector(".bg");
           if (!bg) {
-            var bg = document.getElementsByClassName("bg")[0];
+            var bg = document.getElementsByClassName("bg")[0]; // Если не работает querySelector
           }
           var login = document.querySelector(".login");
           if (!login) {
-            var login = document.getElementsByClassName("login")[0];
+            var login = document.getElementsByClassName("login")[0]; // Если не работает querySelector
           }
 
-          dateBlock.className += " hide";
+          dateBlock.className += " hide"; // add class
           setTimeout(function () {
             if (bg) {
-              bg.className += " blur";
+              bg.className += " blur"; // add class
             }
 
             if (login) {
-              login.className += " active";
+              login.className += " active"; // add class
             }
           }, 500);
-        });
+        };
 
         var form = document.querySelector(".form");
         if (!form) {
-          var form = document.getElementsByClassName("form")[0];
+          var form = document.getElementsByClassName("form")[0]; // Если не работает querySelector
         }
 
         if (form) {
           form.attachEvent("onsubmit", function (e) {
+            //  attachEvent для IE
             var input = document.querySelector(".input");
             if (!input) {
-              var input = document.getElementsByClassName("input")[0];
+              var input = document.getElementsByClassName("input")[0]; // Если не работает querySelector
             }
             var success = document.querySelector(".welcome");
             if (!success) {
-              var success = document.getElementsByClassName("welcome")[0];
+              var success = document.getElementsByClassName("welcome")[0]; // Если не работает querySelector
             }
 
             if (e.preventDefault) {
-              e.preventDefault();
+              e.preventDefault(); // для современных браузеров
             } else {
-              e.returnValue = false;
+              e.returnValue = false; // для IE
             }
 
             if (input.value) {
@@ -305,9 +307,9 @@
       }
 
       if (window.addEventListener) {
-        window.addEventListener("DOMContentLoaded", init);
+        window.addEventListener("DOMContentLoaded", init); //  addEventListener для современных браузеров
       } else {
-        window.attachEvent("onload", init);
+        window.attachEvent("onload", init); //  attachEvent для IE
       }
     </script>
   </body>
