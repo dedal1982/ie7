@@ -223,14 +223,14 @@
 
         var formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
 
-        var time = document.querySelector(".time"); // querySelector
+        var time = document.querySelector(".time");
         if (!time) {
-          var time = document.getElementsByClassName("time")[0]; // Если не работает querySelector
+          var time = document.getElementsByClassName("time")[0];
         }
 
-        var data = document.querySelector(".date"); // querySelector
+        var data = document.querySelector(".date");
         if (!data) {
-          var data = document.getElementsByClassName("date")[0]; // Если не работает querySelector
+          var data = document.getElementsByClassName("date")[0];
         }
 
         time.innerHTML = hours + ":" + formattedMinutes;
@@ -245,51 +245,50 @@
           // исправлено
           var dateBlock = document.querySelector(".times");
           if (!dateBlock) {
-            var dateBlock = document.getElementsByClassName("times")[0]; // Если не работает querySelector
+            var dateBlock = document.getElementsByClassName("times")[0];
           }
 
           var bg = document.querySelector(".bg");
           if (!bg) {
-            var bg = document.getElementsByClassName("bg")[0]; // Если не работает querySelector
+            var bg = document.getElementsByClassName("bg")[0];
           }
           var login = document.querySelector(".login");
           if (!login) {
-            var login = document.getElementsByClassName("login")[0]; // Если не работает querySelector
+            var login = document.getElementsByClassName("login")[0];
           }
 
-          dateBlock.className += " hide"; // add class
+          dateBlock.className += " hide";
           setTimeout(function () {
             if (bg) {
-              bg.className += " blur"; // add class
+              bg.className += " blur";
             }
 
             if (login) {
-              login.className += " active"; // add class
+              login.className += " active";
             }
           }, 500);
         };
 
         var form = document.querySelector(".form");
         if (!form) {
-          var form = document.getElementsByClassName("form")[0]; // Если не работает querySelector
+          var form = document.getElementsByClassName("form")[0];
         }
 
         if (form) {
           form.attachEvent("onsubmit", function (e) {
-            //  attachEvent для IE
             var input = document.querySelector(".input");
             if (!input) {
-              var input = document.getElementsByClassName("input")[0]; // Если не работает querySelector
+              var input = document.getElementsByClassName("input")[0];
             }
             var success = document.querySelector(".welcome");
             if (!success) {
-              var success = document.getElementsByClassName("welcome")[0]; // Если не работает querySelector
+              var success = document.getElementsByClassName("welcome")[0];
             }
 
             if (e.preventDefault) {
-              e.preventDefault(); // для современных браузеров
+              e.preventDefault();
             } else {
-              e.returnValue = false; // для IE
+              e.returnValue = false;
             }
 
             if (input.value) {
@@ -307,9 +306,9 @@
       }
 
       if (window.addEventListener) {
-        window.addEventListener("DOMContentLoaded", init); //  addEventListener для современных браузеров
+        window.addEventListener("DOMContentLoaded", init);
       } else {
-        window.attachEvent("onload", init); //  attachEvent для IE
+        window.attachEvent("onload", init);
       }
     </script>
   </body>
