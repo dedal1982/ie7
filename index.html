@@ -188,6 +188,52 @@
     </div>
 
     <script>
+      function updateTime() {
+        const date = new Date();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const dayNumber = date.getDate();
+
+        const daysOfWeek = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        const dayOfWeek = daysOfWeek[date.getDay()];
+
+        const months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        const month = months[date.getMonth()];
+
+        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+        const time = document.querySelector(".time");
+        const data = document.querySelector(".date");
+
+        time.innerHTML = `${hours}:${formattedMinutes}`;
+
+        data.innerHTML = `${dayOfWeek}, ${month} ${dayNumber}`;
+      }
+
+      setInterval(updateTime, 1000);
+      updateTime();
+
       function init() {
         document.body.onclick = function () {
           var dateBlock = document.querySelector(".times");
